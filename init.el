@@ -19,10 +19,7 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(ac-nrepl
-    ac-slime
-    auto-complete
-    
+  '(    
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
     clojure-mode
@@ -55,6 +52,9 @@
     ;; Emacs mode for Haskell
     haskell-mode
 
+    ;; Fancy completion all over emacs
+    ido-ubiquitous
+
     ;; Provides a REPL for ruby
     inf-ruby
     
@@ -70,6 +70,9 @@
     ;; Minor mode for structuring editing of S-mode data
     paredit
 
+    ;; Project interaction
+    projectile
+
     ;; Major mode for python development
     python-mode
     
@@ -78,6 +81,9 @@
     
     ;; Scala mode
     scala-mode
+
+    ;; Enhanced M-x
+    smex
 
     ;; Visual feedback for changes to the buffer
     volatile-highlights
@@ -168,7 +174,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 ;; livedown
-(require 'livedown)
+;; (require 'livedown)
 
 ;; Jekyll
 (require 'hyde)
