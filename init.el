@@ -22,7 +22,6 @@
   '(ac-nrepl
     ac-slime
     auto-complete
-    better-defaults
     
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
@@ -58,9 +57,6 @@
 
     ;; Provides a REPL for ruby
     inf-ruby
-    
-    ;; emacs mode for managing jekyll blogs
-    jekyll-mode
     
     ;; emacs major mode for editing lua
     lua-mode
@@ -149,50 +145,11 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
+;; Magit customisation
+(load "setup-magit.el")
+
 ;; Language-specific
 (load "setup-clojure.el")
-
-;; Highlight matched parentheses
-(show-paren-mode t)
-
-;; Handy comment/uncomment function
-(defun comment-or-uncomment-region-or-line ()
-  "Like comment-or-uncomment-region, but if there's no mark \(that means no
-region\) apply comment-or-uncomment to the current line"
-  (interactive)
-  (if (not mark-active)
-      (comment-or-uncomment-region
-       (line-beginning-position) (line-end-position))
-    (if (< (point) (mark))
-        (comment-or-uncomment-region (point) (mark))
-      (comment-or-uncomment-region (mark) (point)))))
-(global-set-key (kbd "C-c C-r") 'comment-or-uncomment-region-or-line)
-
-;; Go to matching parantheses
-(defun goto-match-paren (arg)
-  "Go to the matching parenthesis if on parenthesis."
-  (interactive "p")
-  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-        (t (self-insert-command (or arg 1)))))
-(global-set-key (kbd "C-M-#") 'goto-match-paren) ; Ctrl+Alt+#
-
-;; use c-mode for OpenCL and Cuda files
-(setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\.cu$" . cuda-mode) auto-mode-alist))
-
-;; Launch the Clojure repl via Leiningen - M-x clojure-jack-in
-;; Global shortcut definition to fire up clojure repl and connect to it
-(global-set-key (kbd "C-c C-j") 'nrepl-jack-in)
-
-;; java mode
-(add-hook 'java-mode-hook (lambda ()
-			    (setq c-basic-offset 3)))
-;; org-mode
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
 
 ;; Colour mach parens and other structure characters to make code easy to follow
 (custom-set-variables
@@ -201,20 +158,17 @@ region\) apply comment-or-uncomment to the current line"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files (quote ("~/Organizer/todo.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; use c-mode for OpenCL and Cuda files
+(setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\.cu$" . cuda-mode) auto-mode-alist))
 
 (setq-default lua-indent-level 3)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-;; magit
-(global-set-key (kbd "C-c C-g") 'magit-status)
-
 ;; livedown
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
 (require 'livedown)
+
+;; Jekyll
+(require 'hyde)
