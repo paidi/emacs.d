@@ -19,33 +19,40 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(    
+  '(
+    ;; CIDER - clojure development
+    cider
+    ac-cider
+
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
     clojure-mode
 
     ;; extra syntax highlighting for clojure
-    clojure-mode-extra-font-locking  
+    clojure-mode-extra-font-locking
 
     ;; Syntax highlighting for CSS
     css-mode
-    
+
     ;; syntax highlighting for CUDA
     cuda-mode
-    
+
     ;; emacs mode for quicly browsing, filtering and editing directories
     ;; of plain text nodes
     deft
-    
+
+    ;; Enhanched package management
+    el-get
+
     ;; Emacs Speaks Statistics
     ess
-    
+
     ;; Select regions by semantic units
     expand-region
-    
+
     ;; Emacs paste mode for github gists
     gist
-    
+
     ;; Minor mode for running gradle from within emacs
     gradle-mode
 
@@ -57,10 +64,13 @@
 
     ;; Provides a REPL for ruby
     inf-ruby
-    
+
+    ;; json-mode
+    json-mode
+
     ;; emacs major mode for editing lua
     lua-mode
-    
+
     ;; Awesome emacs mode for git
     magit
 
@@ -75,10 +85,11 @@
 
     ;; Major mode for python development
     python-mode
-    
+    ipython
+
     ;; Minor mode for displaying strings representing colours
     rainbow-mode
-    
+
     ;; Scala mode
     scala-mode
 
@@ -87,7 +98,7 @@
 
     ;; Visual feedback for changes to the buffer
     volatile-highlights
-    
+
     ;; YAML mode
     yaml-mode)
   "A list of packages to ensure are installed at launch.")
@@ -116,7 +127,7 @@
 ;;
 ;; (require 'yaml-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;; 
+;;
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -156,6 +167,7 @@
 
 ;; Language-specific
 (load "setup-clojure.el")
+(load "setup-python.el")
 
 ;; Colour mach parens and other structure characters to make code easy to follow
 (custom-set-variables
@@ -169,8 +181,6 @@
 (setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\.cu$" . cuda-mode) auto-mode-alist))
 
-(setq-default lua-indent-level 3)
-
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 ;; livedown
@@ -178,3 +188,14 @@
 
 ;; Jekyll
 (require 'hyde)
+
+;; Lua
+
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(setq-default lua-indent-level 3)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("th" . lua-mode))
+(setq lua-default-application "th")
+
+;; Clean whitespace
+(add-hook 'before-save-hook 'whitespace-cleanup)
