@@ -100,7 +100,11 @@
     volatile-highlights
 
     ;; YAML mode
-    yaml-mode)
+    yaml-mode
+
+    ;; xclip
+    xclip
+    )
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -199,3 +203,5 @@
 
 ;; Clean whitespace
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+(xclip-mode 1)
