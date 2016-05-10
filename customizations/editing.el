@@ -16,7 +16,7 @@
 (show-paren-mode 1)
 
 ;; Highlight current line
-(global-hl-line-mode 1)
+;;(global-hl-line-mode 1)
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
@@ -84,4 +84,3 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-c C-r") 'comment-or-uncomment-region-or-line)
 
 (setq electric-indent-mode nil)
-
