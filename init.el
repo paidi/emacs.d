@@ -20,6 +20,9 @@
 
 (defvar my-packages
   '(
+    ;; autocomplete
+    auto-complete
+
     ;; CIDER - clojure development
     cider
     ac-cider
@@ -205,3 +208,12 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (xclip-mode 1)
+
+;; Load ido-ubiquituous
+(ido-mode 1)
+(ido-everywhere 1)
+(ido-ubiquitous-mode 1)
+
+;; Autocomplete mode settings
+(ac-config-default)
+(global-auto-complete-mode t)
