@@ -44,6 +44,9 @@
     ;; Enhanched package management
     el-get
 
+    ;; Ensime (for Scala)
+    ensime
+
     ;; Emacs Speaks Statistics
     ess
 
