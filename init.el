@@ -5,9 +5,13 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
 
 ;; Load and activate emacs packages
 (package-initialize)
@@ -44,12 +48,6 @@
     ;; of plain text nodes
     deft
 
-    ;; Enhanched package management
-    el-get
-
-    ;; Ensime (for Scala)
-    ensime
-
     ;; Emacs Speaks Statistics
     ess
 
@@ -64,6 +62,9 @@
 
     ;; Emacs mode for Haskell
     haskell-mode
+
+    ;; Helm -
+    helm
 
     ;; Fancy completion all over emacs
     ido-ubiquitous
@@ -83,6 +84,9 @@
     ;; Major mode for editing Markdown formatted text
     markdown-mode
 
+    ;; Monokai theme
+    monokai-theme
+
     ;; Minor mode for structuring editing of S-mode data
     paredit
 
@@ -101,6 +105,9 @@
 
     ;; Enhanced M-x
     smex
+
+    ;; use-package macro
+    use-package
 
     ;; Visual feedback for changes to the buffer
     volatile-highlights
@@ -178,6 +185,7 @@
 ;; Language-specific
 (load "setup-clojure.el")
 (load "setup-python.el")
+(load "setup-scala.el")
 
 ;; Colour mach parens and other structure characters to make code easy to follow
 (custom-set-variables
@@ -220,3 +228,15 @@
 ;; Autocomplete mode settings
 (ac-config-default)
 (global-auto-complete-mode t)
+
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(toggle-frame-fullscreen)
+(scroll-bar-mode 0)
+(fset `yes-or-no-p `y-or-n-p)
+
+(load-theme 'monokai t)
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-m") 'helm-M-x)
+(global-set-key (kbd "C-c C-m") 'helm-M-x)
