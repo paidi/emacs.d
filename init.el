@@ -119,9 +119,6 @@
 
     ;; YAML mode
     yaml-mode
-
-    ;; xclip
-    xclip
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -225,8 +222,6 @@
 
 ;; Clean whitespace
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
-(xclip-mode 1)
 
 ;; Load ido-ubiquituous
 (ido-mode 1)
