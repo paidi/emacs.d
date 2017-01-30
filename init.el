@@ -48,6 +48,11 @@
     ;; of plain text nodes
     deft
 
+    ;;
+    elpy
+    flycheck
+    py-autopep8
+
     ;; Emacs Speaks Statistics
     ess
 
@@ -193,7 +198,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Organizer/todo.org"))))
+ '(org-agenda-files (quote ("~/Organizer/todo.org")))
+ '(package-selected-packages
+   (quote
+    (dockerfile-mode ensime xclip yaml-mode volatile-highlights use-package smex scala-mode rainbow-mode ipython python-mode projectile paredit monokai-theme markdown-mode magit lua-mode json-mode inf-ruby ido-ubiquitous helm haskell-mode gradle-mode gist expand-region ess deft cuda-mode clojure-mode-extra-font-locking ac-cider cider auto-complete))))
 
 ;; use c-mode for OpenCL and Cuda files
 (setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
@@ -240,3 +248,11 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-m") 'helm-M-x)
 (global-set-key (kbd "C-c C-m") 'helm-M-x)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
