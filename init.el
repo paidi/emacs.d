@@ -48,11 +48,6 @@
     ;; of plain text nodes
     deft
 
-    ;;
-    elpy
-    flycheck
-    py-autopep8
-
     ;; Emacs Speaks Statistics
     ess
 
@@ -101,6 +96,15 @@
     ;; Major mode for python development
     python-mode
     ipython
+
+    ;; Python tools
+    elpy
+    flycheck
+    py-autopep8
+
+    ;; Python notebooks
+    request
+    ein
 
     ;; Minor mode for displaying strings representing colours
     rainbow-mode
@@ -251,3 +255,6 @@
  )
 
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+;; Disable line numbers
+(global-linum-mode 0)
