@@ -52,6 +52,7 @@
     elpy
     flycheck
     py-autopep8
+    pyvenv
 
     ;; Emacs Speaks Statistics
     ess
@@ -119,6 +120,9 @@
 
     ;; YAML mode
     yaml-mode
+
+    ;; zotext - for Zotero integration
+    zotxt
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -183,6 +187,7 @@
 
 ;; Magit customisation
 (load "setup-magit.el")
+(load "setup-org-mode.el")
 
 ;; Language-specific
 (load "setup-clojure.el")
@@ -195,10 +200,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Organizer/todo.org")))
+ '(org-agenda-files (quote ("~/Dropbox/org/notes.org")))
  '(package-selected-packages
    (quote
-    (dockerfile-mode ensime xclip yaml-mode volatile-highlights use-package smex scala-mode rainbow-mode ipython python-mode projectile paredit monokai-theme markdown-mode magit lua-mode json-mode inf-ruby ido-ubiquitous helm haskell-mode gradle-mode gist expand-region ess deft cuda-mode clojure-mode-extra-font-locking ac-cider cider auto-complete))))
+    (pylint python-pylint matlab-mode dockerfile-mode ensime xclip yaml-mode volatile-highlights use-package smex scala-mode rainbow-mode ipython python-mode projectile paredit monokai-theme markdown-mode magit lua-mode json-mode inf-ruby ido-ubiquitous helm haskell-mode gradle-mode gist expand-region ess deft cuda-mode clojure-mode-extra-font-locking ac-cider cider auto-complete))))
 
 ;; use c-mode for OpenCL and Cuda files
 (setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
