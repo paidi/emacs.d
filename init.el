@@ -115,6 +115,15 @@
     python-mode
     ipython
 
+    ;; Python tools
+    elpy
+    flycheck
+    py-autopep8
+
+    ;; Python notebooks
+    request
+    ein
+
     ;; Minor mode for displaying strings representing colours
     rainbow-mode
 
@@ -320,3 +329,6 @@
 (load-theme 'misterioso)
 
 (setq x-select-enable-clipboard t)
+
+;; Disable line numbers
+(global-linum-mode 0)
