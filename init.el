@@ -61,7 +61,6 @@
     elpy
     flycheck
     py-autopep8
-    lways
     pyvenv
     ein
 
@@ -121,6 +120,7 @@
     elpy
     flycheck
     py-autopep8
+    python-pytest
 
     ;; Python notebooks
     request
@@ -279,7 +279,6 @@
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (unspecified "#272822" "#20240E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
->>>>>>> dc9ce5d250e5071d42e62256c4dfdac940e2bc94
 
 ;; use c-mode for OpenCL and Cuda files
 (setq auto-mode-alist (cons '("\.cl$" . c-mode) auto-mode-alist))
