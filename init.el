@@ -2,6 +2,7 @@
 
 ;; Set package archives
 (require 'package)
+(require 'scroll-bar)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
@@ -222,6 +223,7 @@
 (load "setup-clojure.el")
 (load "setup-python.el")
 (load "setup-scala.el")
+(load "setup-latex.el")
 
 ;; Colour mach parens and other structure characters to make code easy to follow
 (custom-set-variables
