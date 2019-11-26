@@ -215,6 +215,8 @@
 
 ;; Magit customisation
 (load "setup-magit.el")
+
+;; Org-mode
 (load "setup-org-mode.el")
 
 (load "setup-org-mode.el")
@@ -250,11 +252,11 @@
      ("#F309DF" . 85)
      ("#20240E" . 100))))
  '(magit-diff-use-overlays nil)
- '(org-agenda-files (quote ("~/Dropbox/org/notes.org")))
+ '(org-agenda-files (quote ("~/Dropbox/org/work.org")))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    (quote
-    (## pytest flymake-json python-pylint docker dockerfile-mode ensime xclip yaml-mode volatile-highlights use-package smex scala-mode rainbow-mode ipython python-mode projectile paredit monokai-theme markdown-mode magit lua-mode json-mode inf-ruby ido-ubiquitous helm haskell-mode gradle-mode gist expand-region ess deft cuda-mode clojure-mode-extra-font-locking ac-cider cider auto-complete)))
+    (unfill ## pytest flymake-json python-pylint docker dockerfile-mode ensime xclip yaml-mode volatile-highlights use-package smex scala-mode rainbow-mode ipython python-mode projectile paredit monokai-theme markdown-mode magit lua-mode json-mode inf-ruby ido-ubiquitous helm haskell-mode gradle-mode gist expand-region ess deft cuda-mode clojure-mode-extra-font-locking ac-cider cider auto-complete)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
